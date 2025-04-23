@@ -1,8 +1,0 @@
-Projek aplikasi yang akan dibuat adalah sebuah aplikasi sewa / rental kendaraan bermotor. 
-Aplikasi ini berfungsi untuk membantu penjual dalam memberikan layanan jual beli secara daring kepada customer, fitur yang diharapkan ada dalam aplikasi berikut diantaranya:
-- Halaman home yang menampilkan rekomendasi kendaraan bagi pengguna
-- Fitur pencarian yang memungkinkan pengguna menemukan kendaraan sesuai dengan keyword yang dicari
-- Pada setiap saat pengguna memilih kendaraan pada halaman maka akan tampil halaman baru yang menampilkan rincian dari kendaraan yang dipilih
-- Pada halaman detail kendaraan terdapat fitur whistlist yang memungkinkan pengguna untuk menyimpan kendaraan yang diinginkan ke dalam list untuk memudahkan pengguna jika ingin melihat kendaraan tersebut kembali
-- Pada halaman detail kendaraan terdapat juga fitur sewa untuk menyewa barang yang dipilih oleh penggunkendaraanan berbagai metode pembayaran.
-
