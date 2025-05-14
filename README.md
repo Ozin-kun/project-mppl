@@ -2,6 +2,17 @@
 
 Aplikasi **Sewa Kendaraan Bermotor** adalah platform digital berbasis web atau mobile yang memungkinkan pengguna untuk menyewa berbagai jenis kendaraan bermotor secara daring dengan mudah, cepat, dan aman. Aplikasi ini dirancang untuk memberikan pengalaman terbaik kepada pelanggan maupun pemilik rental kendaraan dalam melakukan transaksi sewa menyewa kendaraan.
 
+# Daftar Kelompok
+
+Berikut adalah anggota kelompok beserta peran masing-masing dalam proyek:
+
+| NIM         | Nama Lengkap              | Peran                |
+|-------------|---------------------------|----------------------|
+| 23106050042 | Ikhwan Tsabitul Azmi      | Maintainer           |
+| 23106050048 | Ihwanikha Fazli Pratama   | Quality Assurance    |
+| 23106050050 | Arif Rahman               | Developer            |
+| 23106050084 | Rozin Gunagraha           | Project Owner        |
+
 ## ✨ Fitur Unggulan
 
 ### 🏠 Beranda
