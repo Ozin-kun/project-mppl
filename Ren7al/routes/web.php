@@ -50,11 +50,11 @@ Route::middleware('auth')->group(function () {
 });
 
 
-// Route::middleware(['auth'])->group(function () {
-//     Route::get('/dashboard', function () {
-//         return Inertia::render('Dashboard');
-//     })->name('dashboard');
-// });
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', function () {
+        return Inertia::render('Dashboard');
+    })->name('dashboard');
+});
 // Route::get('/admin/cars', [AdminCarController::class, 'index'])->middleware(['auth', 'verified', 'role:admin'])->name('admin.cars');
 // Route::get('/admin/dashboard', function () {
 //     return Inertia::render('Admin/AdminDashboard');
