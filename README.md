@@ -1,6 +1,6 @@
-# 🚗 Aplikasi Sewa Kendaraan Bermotor
+# 🚗 Aplikasi Sewa Kendaraan 
 
-Aplikasi **Sewa Kendaraan Bermotor** adalah platform digital berbasis web atau mobile yang memungkinkan pengguna untuk menyewa berbagai jenis kendaraan bermotor secara daring dengan mudah, cepat, dan aman. Aplikasi ini dirancang untuk memberikan pengalaman terbaik kepada pelanggan maupun pemilik rental kendaraan dalam melakukan transaksi sewa menyewa kendaraan.
+Aplikasi **Sewa Kendaraan** adalah platform digital berbasis web yang memungkinkan pengguna untuk menyewa berbagai jenis merk mobil secara daring dengan mudah, cepat, dan aman. Aplikasi ini dirancang untuk memberikan pengalaman terbaik kepada pelanggan maupun pemilik rental kendaraan dalam melakukan transaksi sewa menyewa kendaraan.
 
 # Daftar Kelompok
 
