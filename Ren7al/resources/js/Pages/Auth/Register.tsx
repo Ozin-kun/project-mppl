@@ -1,24 +1,25 @@
-import InputError from '@/Components/InputError';
-import InputLabel from '@/Components/InputLabel';
-import PrimaryButton from '@/Components/PrimaryButton';
-import TextInput from '@/Components/TextInput';
-import GuestLayout from '@/Layouts/GuestLayout';
-import { Head, Link, useForm } from '@inertiajs/react';
-import { FormEventHandler } from 'react';
+import InputError from "@/Components/InputError";
+import InputLabel from "@/Components/InputLabel";
+import PrimaryButton from "@/Components/PrimaryButton";
+import TextInput from "@/Components/TextInput";
+import GuestLayout from "@/Layouts/GuestLayout";
+import { Head, Link, useForm } from "@inertiajs/react";
+import { FormEventHandler } from "react";
+import { User, Mail, Lock, UserPlus } from "lucide-react";
 
 export default function Register() {
     const { data, setData, post, processing, errors, reset } = useForm({
-        name: '',
-        email: '',
-        password: '',
-        password_confirmation: '',
+        name: "",
+        email: "",
+        password: "",
+        password_confirmation: "",
     });
 
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
 
-        post(route('register'), {
-            onFinish: () => reset('password', 'password_confirmation'),
+        post(route("register"), {
+            onFinish: () => reset("password", "password_confirmation"),
         });
     };
 
@@ -26,94 +27,168 @@ export default function Register() {
         <GuestLayout>
             <Head title="Register" />
 
-            <form onSubmit={submit}>
+            {/* Header */}
+            <div className="mb-6 text-center">
+                <h1 className="text-2xl font-bold text-white mb-2">
+                    Bergabung dengan REN7AL
+                </h1>
+                <p className="text-zinc-400 text-sm">
+                    Buat akun baru untuk mulai menyewa mobil
+                </p>
+            </div>
+
+            <form onSubmit={submit} className="space-y-5">
+                {/* Name Field */}
                 <div>
-                    <InputLabel htmlFor="name" value="Name" />
-
-                    <TextInput
-                        id="name"
-                        name="name"
-                        value={data.name}
-                        className="mt-1 block w-full"
-                        autoComplete="name"
-                        isFocused={true}
-                        onChange={(e) => setData('name', e.target.value)}
-                        required
+                    <InputLabel
+                        htmlFor="name"
+                        value="Nama Lengkap"
+                        className="text-zinc-200 font-medium"
                     />
-
-                    <InputError message={errors.name} className="mt-2" />
+                    <div className="relative mt-2">
+                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <User className="h-5 w-5 text-zinc-400" />
+                        </div>
+                        <TextInput
+                            id="name"
+                            name="name"
+                            value={data.name}
+                            className="block w-full pl-10 pr-3 py-3 bg-zinc-700/50 border border-zinc-600/50 rounded-lg text-white placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition-colors"
+                            autoComplete="name"
+                            isFocused={true}
+                            placeholder="John Doe"
+                            onChange={(e) => setData("name", e.target.value)}
+                            required
+                        />
+                    </div>
+                    <InputError
+                        message={errors.name}
+                        className="mt-2 text-red-400"
+                    />
                 </div>
 
-                <div className="mt-4">
-                    <InputLabel htmlFor="email" value="Email" />
-
-                    <TextInput
-                        id="email"
-                        type="email"
-                        name="email"
-                        value={data.email}
-                        className="mt-1 block w-full"
-                        autoComplete="username"
-                        onChange={(e) => setData('email', e.target.value)}
-                        required
+                {/* Email Field */}
+                <div>
+                    <InputLabel
+                        htmlFor="email"
+                        value="Email Address"
+                        className="text-zinc-200 font-medium"
                     />
-
-                    <InputError message={errors.email} className="mt-2" />
+                    <div className="relative mt-2">
+                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <Mail className="h-5 w-5 text-zinc-400" />
+                        </div>
+                        <TextInput
+                            id="email"
+                            type="email"
+                            name="email"
+                            value={data.email}
+                            className="block w-full pl-10 pr-3 py-3 bg-zinc-700/50 border border-zinc-600/50 rounded-lg text-white placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition-colors"
+                            autoComplete="username"
+                            placeholder="john@example.com"
+                            onChange={(e) => setData("email", e.target.value)}
+                            required
+                        />
+                    </div>
+                    <InputError
+                        message={errors.email}
+                        className="mt-2 text-red-400"
+                    />
                 </div>
 
-                <div className="mt-4">
-                    <InputLabel htmlFor="password" value="Password" />
-
-                    <TextInput
-                        id="password"
-                        type="password"
-                        name="password"
-                        value={data.password}
-                        className="mt-1 block w-full"
-                        autoComplete="new-password"
-                        onChange={(e) => setData('password', e.target.value)}
-                        required
+                {/* Password Field */}
+                <div>
+                    <InputLabel
+                        htmlFor="password"
+                        value="Password"
+                        className="text-zinc-200 font-medium"
                     />
-
-                    <InputError message={errors.password} className="mt-2" />
+                    <div className="relative mt-2">
+                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <Lock className="h-5 w-5 text-zinc-400" />
+                        </div>
+                        <TextInput
+                            id="password"
+                            type="password"
+                            name="password"
+                            value={data.password}
+                            className="block w-full pl-10 pr-3 py-3 bg-zinc-700/50 border border-zinc-600/50 rounded-lg text-white placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition-colors"
+                            autoComplete="new-password"
+                            placeholder="••••••••"
+                            onChange={(e) =>
+                                setData("password", e.target.value)
+                            }
+                            required
+                        />
+                    </div>
+                    <InputError
+                        message={errors.password}
+                        className="mt-2 text-red-400"
+                    />
                 </div>
 
-                <div className="mt-4">
+                {/* Confirm Password Field */}
+                <div>
                     <InputLabel
                         htmlFor="password_confirmation"
-                        value="Confirm Password"
+                        value="Konfirmasi Password"
+                        className="text-zinc-200 font-medium"
                     />
-
-                    <TextInput
-                        id="password_confirmation"
-                        type="password"
-                        name="password_confirmation"
-                        value={data.password_confirmation}
-                        className="mt-1 block w-full"
-                        autoComplete="new-password"
-                        onChange={(e) =>
-                            setData('password_confirmation', e.target.value)
-                        }
-                        required
-                    />
-
+                    <div className="relative mt-2">
+                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <Lock className="h-5 w-5 text-zinc-400" />
+                        </div>
+                        <TextInput
+                            id="password_confirmation"
+                            type="password"
+                            name="password_confirmation"
+                            value={data.password_confirmation}
+                            className="block w-full pl-10 pr-3 py-3 bg-zinc-700/50 border border-zinc-600/50 rounded-lg text-white placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition-colors"
+                            autoComplete="new-password"
+                            placeholder="••••••••"
+                            onChange={(e) =>
+                                setData("password_confirmation", e.target.value)
+                            }
+                            required
+                        />
+                    </div>
                     <InputError
                         message={errors.password_confirmation}
-                        className="mt-2"
+                        className="mt-2 text-red-400"
                     />
                 </div>
 
-                <div className="mt-4 flex items-center justify-end">
-                    <Link
-                        href={route('login')}
-                        className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:text-gray-400 dark:hover:text-gray-100 dark:focus:ring-offset-gray-800"
+                {/* Submit Button */}
+                <div className="pt-2">
+                    <PrimaryButton
+                        className="w-full flex items-center justify-center py-3 px-4 bg-gradient-to-r from-amber-600 to-amber-600 hover:from-amber-700 hover:to-amber-700 text-white font-semibold rounded-lg shadow-lg transform transition-all duration-200 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-amber-500/50 disabled:opacity-50 disabled:cursor-not-allowed"
+                        disabled={processing}
                     >
-                        Already registered?
-                    </Link>
-
-                    <PrimaryButton className="ms-4" disabled={processing}>
-                        Register
+                        {processing ? (
+                            <div className="flex items-center">
+                                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                                Membuat akun...
+                            </div>
+                        ) : (
+                            <div className="flex items-center">
+                                <UserPlus className="h-4 w-4 mr-2" />
+                                Daftar Sekarang
+                            </div>
+                        )}
                     </PrimaryButton>
+                </div>
+
+                {/* Login Link */}
+                <div className="text-center pt-4 border-t border-zinc-700/50">
+                    <p className="text-sm text-zinc-400">
+                        Sudah punya akun?{" "}
+                        <Link
+                            href={route("login")}
+                            className="text-amber-400 hover:text-amber-300 font-medium transition-colors underline"
+                        >
+                            Masuk di sini
+                        </Link>
+                    </p>
                 </div>
             </form>
         </GuestLayout>
