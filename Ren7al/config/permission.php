@@ -172,7 +172,9 @@ return [
      * The class to use for interpreting wildcard permissions.
      * If you need to modify delimiters, override the class and specify its name here.
      */
+
     // 'wildcard_permission' => Spatie\Permission\WildcardPermission::class,
+
 
     /* Cache-specific settings */
 
