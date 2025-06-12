@@ -30,9 +30,6 @@ Berikut adalah anggota kelompok beserta peran masing-masing dalam proyek:
   - Harga sewa per hari / jam
   - Ketersediaan
 
-### ❤️ Wishlist
-- Pengguna dapat **menyimpan kendaraan favorit** ke dalam daftar `Wishlist` untuk kemudahan akses di lain waktu.
-
 ### 📦 Fitur Sewa
 - Pengguna dapat melakukan **proses penyewaan** langsung dari halaman detail kendaraan.
 - Mendukung berbagai **metode pembayaran**, seperti:
@@ -41,22 +38,16 @@ Berikut adalah anggota kelompok beserta peran masing-masing dalam proyek:
   - Kartu Kredit / Debit
 
 ## 🔧 Teknologi yang Digunakan
-- **Frontend**: -
-- **Backend**: -
-- **Database**: -
-- **Authentication**: -
-- **Payment Gateway**: -
+- **Frontend**: React with Inertia
+- **Backend**: Laravel
+- **Database**: SQLite
+- **Authentication**: Spatie
+- **Payment Gateway**: Stripe
 
 ## 📦 Instalasi dan Penggunaan
 ```bash
 # Clone repositori
 git clone https://github.com/username/project-mppl.git
-cd sewa-kendaraan
+cd Ren7al
 
-# Instal dependensi
-npm install
-
-# Jalankan aplikasi
-npm start
-
-> Catatan: Sesuaikan dengan stack teknologi yang kamu gunakan (Node.js, React Native, dll)
+# Untuk instruksi lebih detailnya silahkan buka folder Ren7al
