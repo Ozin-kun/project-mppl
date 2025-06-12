@@ -71,6 +71,23 @@ export default function CarTable({
         );
     };
 
+    const getImageSrc = (car: Car): string => {
+        if (car.image) {
+            // Check if it's a URL (internet image)
+            if (
+                car.image.startsWith("http://") ||
+                car.image.startsWith("https://")
+            ) {
+                return car.image;
+            }
+            // It's a local storage path
+            return `/storage/${car.image}`;
+        }
+
+        // No image at all
+        return "/images/default-car.jpg";
+    };
+
     return (
         <div className="space-y-4">
             <div className="flex items-center space-x-4">
@@ -118,7 +135,7 @@ export default function CarTable({
                                             <div className="relative h-10 w-10 overflow-hidden rounded-md">
                                                 {car.image ? (
                                                     <img
-                                                        src={car.image}
+                                                        src={getImageSrc(car)}
                                                         alt={`${car.brand} ${car.model}`}
                                                         className="object-cover"
                                                     />

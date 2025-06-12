@@ -3,16 +3,21 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Booking;
+use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Spatie\Permission\Traits\HasRoles;
+use App\Models\Payment;
+
+
 
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
-    use HasRoles; // Add this line to enable role assignment
+    use HasFactory;
+    use Notifiable; 
+    use HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -47,4 +52,36 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function bookings()
+    {
+    return $this->hasMany(Booking::class);
+    }
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class, 'role_id');
+    }
+
+    public function payments()
+{
+    return $this->hasManyThrough(Payment::class, Booking::class);
+}
+
+// Helper methods
+public function getTotalSpentAttribute()
+{
+    return $this->payments()->where('payment_status', 'paid')->sum('amount');
+}
+
+public function getActiveBookingsAttribute()
+{
+    return $this->bookings()->active()->count();
+}
+
+public function getPendingPaymentsAttribute()
+{
+    return $this->payments()->where('payment_status', 'pending')->count();
+}
+    
 }

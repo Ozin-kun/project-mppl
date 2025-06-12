@@ -1,4 +1,3 @@
-// Pages/Index.tsx
 "use client";
 
 import { useState, useEffect } from "react";
@@ -37,7 +36,7 @@ interface IndexProps {
 export default function Index({ cars, filters }: IndexProps) {
     const [searchTerm, setSearchTerm] = useState(filters.search || "");
     const [isRestoring, setIsRestoring] = useState(false);
-
+    console.log(cars);
     // Debounced search - auto search setelah user berhenti mengetik
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -251,6 +250,23 @@ function EnhancedCarCard({ car }: { car: Car }) {
     const formatRupiah = (amount: number): string => {
         return "Rp " + amount.toLocaleString("id-ID");
     };
+
+    const getImageSrc = (car: Car): string => {
+        if (car.image) {
+            // Check if it's a URL (internet image)
+            if (
+                car.image.startsWith("http://") ||
+                car.image.startsWith("https://")
+            ) {
+                return car.image;
+            }
+            // It's a local storage path
+            return `/storage/${car.image}`;
+        }
+
+        // No image at all
+        return "/images/default-car.jpg";
+    };
     const handleViewDetails = () => {
         const currentScrollPosition = window.scrollY;
         sessionStorage.setItem(
@@ -264,7 +280,7 @@ function EnhancedCarCard({ car }: { car: Car }) {
         <Card className="bg-zinc-800/60 backdrop-blur-sm border-zinc-700 hover:border-zinc-600 transition-all duration-300 hover:shadow-xl hover:shadow-amber-500/10 group overflow-hidden">
             <div className="relative overflow-hidden">
                 <img
-                    src={car.image || "/placeholder-car.svg"}
+                    src={getImageSrc(car) || "/placeholder-car.svg"}
                     alt={`${car.brand} ${car.model}`}
                     className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
